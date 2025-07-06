@@ -18,11 +18,7 @@ pipeline {
             steps {
                 sh '.venv/bin/python -m unittest discover -s tests'
             }
-            post {
-                always {
-                    junit 'test-reports/*.xml'  // If you generate JUnit reports
-                }
-            }
+
         }
         stage('Deploy') {
             when {
