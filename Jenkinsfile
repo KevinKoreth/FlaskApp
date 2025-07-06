@@ -22,11 +22,10 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                branch 'release/*'  // Only deploy from release branch
+                branch 'main'  // Only deploy from main branch
             }
             steps {
                 sh '''
-                .venv/bin/activate
                 .venv/bin/python run.py
                 '''
             }
