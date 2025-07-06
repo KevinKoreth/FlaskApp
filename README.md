@@ -79,10 +79,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Feel free to contribute to this project by opening issues or submitting pull requests. We welcome any improvements, bug fixes, or additional features.
 
-## Author
-
-- Pan Luo
-
 ## Acknowledgments
 
 - This project was created as a sample Flask application for educational purposes.

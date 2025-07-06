@@ -5,9 +5,9 @@ from flask import request
 
 items = []
 
-@app.route('/')
+@app.route('/health_check')
 def hello():
-    return "Hello, Flask!"
+    return "App is running!"
 
 @app.route('/items', methods=['GET'])
 def get_items():

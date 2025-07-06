@@ -8,10 +8,10 @@ class TestAppRoutes(unittest.TestCase):
         self.app = app.test_client()
         self.app.testing = True
 
-    def test_hello_route(self):
-        response = self.app.get('/')
+    def test_health_check_route(self):
+        response = self.app.get('/health_check')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data.decode('utf-8'), "Hello, Flask!")
+        self.assertEqual(response.data.decode('utf-8'), "App is running!")
 
     def test_add_item_route(self):
         response = self.app.post('/items', json={"name": "item1"})
