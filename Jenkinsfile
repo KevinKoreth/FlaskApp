@@ -21,10 +21,10 @@ pipeline {
 
         }
         stage('Deploy') {
-            
+
             steps {
                 sh '''
-                .venv/bin/python run.py
+                nohup .venv/bin/python run.py > run.log 2>&1 &
                 '''
             }
         }
