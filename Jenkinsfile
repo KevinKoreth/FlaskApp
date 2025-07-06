@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                branch 'main'  // Only deploy from main branch
+                branch '*/main'  // Only deploy from main branch
             }
             steps {
                 sh '''
