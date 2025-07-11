@@ -37,3 +37,10 @@ jobs:
     - name: Test
       run: |
         python -m unittest discover -s tests
+    - name: Deploy to staging
+      if: github.ref == 'refs/heads/staging'
+      run: |
+        echo "Deploying to staging environment..."
+        # Add your deployment commands here, e.g., SSH into server and pull latest changes
+        # ssh user@your-server "cd /path/to/your/app && git pull && systemctl restart your-app"
+        echo "Deployment complete."
