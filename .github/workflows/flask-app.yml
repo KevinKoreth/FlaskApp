@@ -8,6 +8,8 @@ on:
     branches: [ "staging" ]
   pull_request:
     branches: [ "staging" ]
+  release:
+    types: [ "created" ]
 
 permissions:
   contents: read
@@ -44,3 +46,9 @@ jobs:
         # Add your deployment commands here, e.g., SSH into server and pull latest changes
         # ssh user@your-server "cd /path/to/your/app && git pull && systemctl restart your-app"
         echo "Deployment complete."
+    - name: Deploy to Production
+      if: github.event_name == 'release' && github.event.release.tag_name != ''
+      run: |
+        echo "Deploying to production environment for tag ${{ github.event.release.tag_name }}..."
+        # ssh user@your-server "cd /path/to/your/app && git fetch --tags && git checkout ${{ github.event.release.tag_name }} && systemctl restart your-app"
+        echo "Production deployment complete."
